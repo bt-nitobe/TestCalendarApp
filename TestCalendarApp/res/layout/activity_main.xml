@@ -1,14 +1,26 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:txt="http://schemas.android.com/apk/res/com.example.testcalendar.CalendarView"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world"
-        tools:context=".MainActivity" />
+	    android:id="@+id/textView1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:background="#80FF0000"
+	    android:text="AAAA" >
+    </TextView>
 
-</RelativeLayout>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        
+	    <com.example.testcalendar.CalendarView.CalendarView
+	        android:id="@+id/carendar"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+	    </com.example.testcalendar.CalendarView.CalendarView>
+	</LinearLayout>
+</LinearLayout>

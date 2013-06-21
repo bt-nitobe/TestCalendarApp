@@ -1,7 +1,11 @@
 package com.example.testcalendarapp;
 
-import android.os.Bundle;
+import java.util.Calendar;
+
+import com.example.testcalendar.CalendarView.CalendarView;
+
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
 
 public class MainActivity extends Activity {
@@ -10,6 +14,11 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        
+        CalendarView cal = (CalendarView) findViewById(R.id.carendar);
+        cal.beginningWeek = Calendar.SUNDAY; // 週の開始曜日を指定
+        cal.init(2012, 9-1); // 2012年9月のカレンダーを表示        
     }
 
     @Override
