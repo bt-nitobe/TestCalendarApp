@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:txt="http://schemas.android.com/apk/res/com.example.testcalendar.CalendarView"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -15,12 +14,43 @@
 
     <LinearLayout 
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="#3000ff33" >
         
-	    <com.example.testcalendar.CalendarView.CalendarView
-	        android:id="@+id/carendar"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content" >
-	    </com.example.testcalendar.CalendarView.CalendarView>
+		        <Button
+		            android:id="@+id/button1"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="CalendarView" />
+		        
+       			<Button
+		            android:id="@+id/button2"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="CalendarRefactView" />
+
+       			<Button
+		            android:id="@+id/button3"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="CalendarView_API15" />
+       			
+			<!-- CalendarViewクラスレイアウト -->
+<!-- 	    <com.example.testcalendar.CalendarView.CalendarView -->
+<!-- 	        android:id="@+id/carendar" -->
+<!-- 	        android:layout_width="match_parent" -->
+<!-- 	        android:layout_height="wrap_content" > -->
+<!-- 	    </com.example.testcalendar.CalendarView.CalendarView> -->
+	    
+		    <!-- CalendarRefactViewクラスレイアウト -->
+
+<!-- 		    <com.example.testcalendar.CalendarView.CalendarRefactView -->
+<!-- 		        android:id="@+id/carendar_refact" -->
+<!-- 		        android:layout_width="match_parent" -->
+<!-- 		        android:layout_height="wrap_content" > -->
+<!-- 		    </com.example.testcalendar.CalendarView.CalendarRefactView> -->
+	    
 	</LinearLayout>
 </LinearLayout>
