@@ -13,7 +13,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
+import com.example.testcalendarapp.CalendarViewActivitySecond.TestOnClickListener;
 
 /**  
  * 指定した年月日のカレンダーを表示するクラス  
@@ -22,13 +22,13 @@ public class CalendarRefactView extends LinearLayout {
     @SuppressWarnings("unused")   
     private static final String TAG = CalendarView.class.getSimpleName();   
        
-    private static final int WEEKDAYS = 7;   
-    private static final int MAX_WEEK = 6;   
+    private static final int WEEKDAYS = 7;
+    private static final int MAX_WEEK = 6;
        
     // 週の始まりの曜日を保持する   
     private static final int BIGINNING_DAY_OF_WEEK = Calendar.SUNDAY;   
     // 今日のフォント色    
-    private static final int TODAY_COLOR = Color.RED;   
+    private static final int TODAY_COLOR = Color.argb(255, 255, 128, 0);   
     // 通常のフォント色   
     private static final int DEFAULT_COLOR = Color.DKGRAY;   
     // 今週の背景色    
@@ -79,7 +79,7 @@ public class CalendarRefactView extends LinearLayout {
         mTitleView.setGravity(Gravity.CENTER_HORIZONTAL); // 中央に表示   
         mTitleView.setTextSize((int)(scaleDensity * 14));   
         mTitleView.setTypeface(null, Typeface.BOLD); // 太字   
-        mTitleView.setPadding(0, 0, 0, (int)(scaleDensity * 16));   
+        mTitleView.setPadding(0, 0, 0, (int)(scaleDensity * 16));		// setPadding (left, top, right, bottom) 
            
         addView(mTitleView, new LinearLayout.LayoutParams(   
             LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));   
@@ -100,8 +100,8 @@ public class CalendarRefactView extends LinearLayout {
            
         for (int i = 0; i < WEEKDAYS; i++) {   
             TextView textView = new TextView(context);   
-            textView.setGravity(Gravity.RIGHT); // 中央に表示   
-            textView.setPadding(0, 0, (int)(scaleDensity * 4), 0);   
+            textView.setGravity(Gravity.CENTER); // 中央に表示   
+            textView.setPadding(0, 0, (int)(scaleDensity * 4), 0); 		// setPadding (left, top, right, bottom)   
                
             LinearLayout.LayoutParams llp =    
                     new LinearLayout.LayoutParams(0, LayoutParams.WRAP_CONTENT);   
@@ -111,6 +111,7 @@ public class CalendarRefactView extends LinearLayout {
                
             calendar.add(Calendar.DAY_OF_MONTH, 1);   
         }   
+        
         addView(mWeekLayout, new LinearLayout.LayoutParams(   
             LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));   
     }   
@@ -126,19 +127,38 @@ public class CalendarRefactView extends LinearLayout {
            
         // カレンダー部 最大6行必要   
         for (int i = 0; i < MAX_WEEK; i++) {   
-            LinearLayout weekLine = new LinearLayout(context);   
+            LinearLayout weekLine = new LinearLayout(context);
             mWeeks.add(weekLine);   
                
             // 1週間分の日付ビュー作成   
-            for (int j = 0; j < WEEKDAYS; j++) {   
+            for (int j = 0; j < WEEKDAYS; j++) {
+            	
+            	LinearLayout dayDetail = new LinearLayout(context);
+            	dayDetail.setOrientation(VERTICAL);
+            	
                 TextView dayView = new TextView(context);   
-                dayView.setGravity(Gravity.TOP | Gravity.RIGHT);    
-                dayView.setPadding(0, (int)(scaleDensity * 4), (int)(scaleDensity * 4), 0);   
+                dayView.setGravity(Gravity.TOP | Gravity.CENTER);    
+                dayView.setPadding(0, (int)(scaleDensity * 4), (int)(scaleDensity * 4), 0); 		// setPadding (left, top, right, bottom)   
                 LinearLayout.LayoutParams llp =    
-                        new LinearLayout.LayoutParams(0, (int)(scaleDensity * 48));   
-                llp.weight = 1;   
-                weekLine.addView(dayView, llp);   
-            }   
+                        new LinearLayout.LayoutParams((int)(scaleDensity * 48), (int)(scaleDensity * 48));   
+                llp.weight = 1;
+                dayDetail.addView(dayView, llp);
+
+                
+                TextView dayView2 = new TextView(context);   
+                dayView2.setGravity(Gravity.TOP | Gravity.CENTER);    
+                dayView2.setPadding(0, (int)(scaleDensity * 4), (int)(scaleDensity * 4), 0); 		// setPadding (left, top, right, bottom)   
+                LinearLayout.LayoutParams llp2 =    
+                        new LinearLayout.LayoutParams((int)(scaleDensity * 48), (int)(scaleDensity * 48));   
+                llp2.weight = 1;   
+                
+//                dayView2.setText(String.valueOf(j));
+                dayView2.setText("-");
+                
+                dayDetail.addView(dayView2, llp2);
+                
+                weekLine.addView(dayDetail, llp2);
+             }   
                
             this.addView(weekLine, new LinearLayout.LayoutParams(   
                 LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));   
@@ -181,7 +201,7 @@ public class CalendarRefactView extends LinearLayout {
         SimpleDateFormat weekFormatter = new SimpleDateFormat("E"); // 曜日を取得するフォーマッタ   
         for (int i = 0; i < WEEKDAYS; i++) {   
             TextView textView = (TextView) mWeekLayout.getChildAt(i);   
-            textView.setText(weekFormatter.format(week.getTime())); // テキストに曜日を表示   
+            textView.setText(weekFormatter.format(week.getTime())); // テキストに曜日を表示
             week.add(Calendar.DAY_OF_MONTH, 1);   
         }   
     }   
@@ -208,7 +228,11 @@ public class CalendarRefactView extends LinearLayout {
             LinearLayout weekLayout = mWeeks.get(i);   
             weekLayout.setBackgroundColor(DEFAULT_BACKGROUND_COLOR);   
             for (int j = 0; j < WEEKDAYS; j++) {   
-                TextView dayView = (TextView) weekLayout.getChildAt(j);   
+//                TextView dayView = (TextView) weekLayout.getChildAt(j);   
+            	LinearLayout sampleLayout = (LinearLayout) weekLayout.getChildAt(j);
+            	
+//            	for(int n = 0; n < 2; n++) {
+                TextView dayView = (TextView) sampleLayout.getChildAt(0); 
                    
                 // 第一週かつskipCountが残っていれば   
                 if (i == 0 && skipCount > 0) {   
@@ -233,13 +257,20 @@ public class CalendarRefactView extends LinearLayout {
                 if (isToday) {   
                     dayView.setTextColor(TODAY_COLOR); // 赤文字   
                     dayView.setTypeface(null, Typeface.BOLD); // 太字   
-                    weekLayout.setBackgroundColor(TODAY_BACKGROUND_COLOR); // 週の背景グレー   
+                    dayView.setBackgroundColor(TODAY_BACKGROUND_COLOR);
+                    weekLayout.setBackgroundColor(TODAY_BACKGROUND_COLOR); // 週の背景グレー
+                    
+                    TextView detail = (TextView) sampleLayout.getChildAt(1);
+                    detail.setTextColor(TODAY_COLOR); // 赤文字   
+                    detail.setText("体重");
                 } else {   
                     dayView.setTextColor(DEFAULT_COLOR);   
                     dayView.setTypeface(null, Typeface.NORMAL);   
+                    dayView.setBackgroundColor(Color.CYAN);
                 }   
                 dayCounter++;   
-            }   
+            }
+//            }
         }   
     }   
   

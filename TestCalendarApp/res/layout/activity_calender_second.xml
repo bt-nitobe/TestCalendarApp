@@ -7,7 +7,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#8000ff33"
         android:gravity="center" >
 
         <!-- CalendarRefactViewクラスレイアウト -->

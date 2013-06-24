@@ -1,6 +1,8 @@
 package com.example.testcalendarapp;
 
 import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 
 import com.example.testcalendar.CalendarView.CalendarRefactView;
@@ -21,5 +23,14 @@ public class CalendarViewActivitySecond extends Activity{
 		super.onStart();
 	}
 
+	public class TestOnClickListener implements OnClickListener{
+
+		@Override
+		public void onClick(DialogInterface dialog, int which) {
+			// TODO 自動生成されたメソッド・スタブ
+			
+		}
+		
+	}
 
 }

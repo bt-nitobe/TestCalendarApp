@@ -1,7 +1,9 @@
 package com.example.testcalendarapp;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -51,9 +53,21 @@ public class MainActivity extends Activity implements OnClickListener{
 		
 		Button btnC = (Button)findViewById(R.id.button3);
 		btnC.setOnClickListener(this);
-
+		btnC.setEnabled(false);
+		
+		checkBuildVersion(btnC.getId());
 	}
 
+	
+	@TargetApi(4)
+	protected void checkBuildVersion(int view) {
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+			Button  btn = (Button)findViewById(view);
+			btn.setEnabled(true);
+		}
+
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
