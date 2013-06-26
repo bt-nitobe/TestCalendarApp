@@ -3,12 +3,10 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk
-        android:targetSdkVersion="10" />
+    <uses-sdk android:targetSdkVersion="10" />
 
-    <uses-permission 
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -22,22 +20,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
-            android:name="CalendarViewActivityFirst"
+            android:name=".CalendarViewActivity_Captcha"
             android:label="@string/title_activity_main" >
         </activity>
-        
         <activity
-            android:name="CalendarViewActivitySecond"
+            android:name=".CalendarViewActivity_CustomView"
             android:label="@string/title_activity_main" >
         </activity>
-        
-         <activity
-            android:name="CalendarViewActivityThird"
+        <activity
+            android:name=".CalendarViewActivity_Os_Calendar"
             android:label="@string/title_activity_main" >
         </activity>
-        
-        </application>
+        <activity
+            android:name=".GraphActivity_AFreeChart"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name=".GraphActivity_AChartEngin"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name=".GraphActivity_Os"
+            android:label="@string/title_activity_main" >
+        </activity>
+    </application>
 
 </manifest>

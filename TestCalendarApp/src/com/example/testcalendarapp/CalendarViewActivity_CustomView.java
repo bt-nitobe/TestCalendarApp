@@ -7,11 +7,11 @@ import android.os.Bundle;
 
 import com.example.testcalendar.CalendarView.CalendarRefactView;
 
-public class CalendarViewActivitySecond extends Activity{
+public class CalendarViewActivity_CustomView extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_calender_second);
+		setContentView(R.layout.activity_calender_custom_view);
 		
 		CalendarRefactView calendarView = (CalendarRefactView) findViewById(R.id.carendar_refact);   
 		calendarView.set(2013, 6-1); // 2013年3月にセット  

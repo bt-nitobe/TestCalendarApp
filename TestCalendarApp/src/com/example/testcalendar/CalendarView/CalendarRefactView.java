@@ -13,7 +13,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.example.testcalendarapp.CalendarViewActivitySecond.TestOnClickListener;
+import com.example.testcalendarapp.CalendarViewActivity_CustomView.TestOnClickListener;
 
 /**  
  * 指定した年月日のカレンダーを表示するクラス  

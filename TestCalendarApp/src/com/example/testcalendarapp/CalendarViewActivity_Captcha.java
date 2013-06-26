@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import com.example.testcalendar.CalendarView.CalendarView;
 import com.example.testcalendarapp.util.Logger;
 
-public class CalendarViewActivityFirst extends Activity{
+public class CalendarViewActivity_Captcha extends Activity{
 	
 	protected ImageView _view;
 	
@@ -24,10 +24,10 @@ public class CalendarViewActivityFirst extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		Logger.i(this, "onCreate", "call CalendarViewActivityFirst");
+		Logger.i(this, "onCreate", "call CalendarViewActivity_Captcha");
 
 		
-		setContentView(R.layout.activity_calender_first);
+		setContentView(R.layout.activity_calender_captcha);
 
 		CalendarView cal = (CalendarView) findViewById(R.id.carendar);
 		cal.beginningWeek = Calendar.SUNDAY; // 週の開始曜日を指定

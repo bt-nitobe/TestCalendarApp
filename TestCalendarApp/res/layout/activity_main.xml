@@ -23,13 +23,13 @@
 		            android:id="@+id/button1"
 		            android:layout_width="wrap_content"
 		            android:layout_height="wrap_content"
-		            android:text="CalendarView＆Captcha" />
+		            android:text="カレンダー＆キャプチャ" />
 		        
        			<Button
 		            android:id="@+id/button2"
 		            android:layout_width="wrap_content"
 		            android:layout_height="wrap_content"
-		            android:text="CalendarRefactView" />
+		            android:text="カスタムコンポーネント版カレンダー" />
 
        			<Button
 		            android:id="@+id/button3"
@@ -37,7 +37,25 @@
 		            android:layout_height="wrap_content"
 		            android:text="CalendarView_API15" />
        			
-			<!-- CalendarViewクラスレイアウト -->
+       			<Button
+		            android:id="@+id/button4"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="グラフAFreeChart" />
+       						
+       			<Button
+		            android:id="@+id/button5"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="グラフAChartEngin" />
+       			
+       			<Button
+		            android:id="@+id/button6"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="グラフOSのみ" />
+       			
+       						<!-- CalendarViewクラスレイアウト -->
 <!-- 	    <com.example.testcalendar.CalendarView.CalendarView -->
 <!-- 	        android:id="@+id/carendar" -->
 <!-- 	        android:layout_width="match_parent" -->
